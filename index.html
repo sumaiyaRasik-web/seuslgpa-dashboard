@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEUSL GPA Management Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SEUSL GPA</h2>
+        <a href="#" class="active"><i class="fa fa-chart-line"></i> Dashboard</a>
+        <a href="#"><i class="fa fa-book"></i> Subjects</a>
+        <a href="#"><i class="fa fa-chart-pie"></i> Analytics</a>
+        <a href="#"><i class="fa fa-gear"></i> Settings</a>
+
+    </div>
+
+    <div class="main">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+        <div class="menu-toggle" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        `</div>
+            
+        <h1>Student GPA Dashboard</h1>
+            <p>South Eastern University of Sri Lanka</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Subjects</h3>
+                <p id="totalSubjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Credits</h3>
+                <p id="totalCredits">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Current GPA</h3>
+                <p id="gpaValue">0.00</p>
+            </div>
+
+            <div class="card">
+                <h3>Status</h3>
+                <p id="academicStatus">-</p>
+            </div>
+
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section">
+
+            <input type="text" id="subject"
+            placeholder="Enter Subject Name">
+
+            <input type="number" id="credit"
+            placeholder="Credit Hours">
+
+            <select id="grade">
+
+                <option value="" disabled selected>Select Grade</option>
+
+                <option value="4.0">A+</option>
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.3">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+                <option value="2.3">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.0">D</option>
+                <option value="0.0">E</option>
+
+            </select>
+
+            <button id="addBtn" onclick="addSubject()" disabled>
+                <i class="fa-solid fa-plus"></i>
+                Add Subject
+            </button>
+
+        </div>
+
+        <!-- Table -->
+        <div class="table-section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Credits</th>
+                        <th>Grade</th>
+                        <th>Grade Point</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="subjectList"></tbody>
+
+            </table>
+
+        </div>
+
+        <div class="chart-section">
+            <h2>Grade Distribution</h2>
+            <canvas id="gradeChart"></canvas>
+        </div>
+
+        <div class="ai-section">
+            <h2>AI Academic Assistant</h2>
+            <div id="chatBox"></div>
+
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask about GPA, subjects, study tips...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
